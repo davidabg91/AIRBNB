@@ -1542,7 +1542,19 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
     .luxury-feedback-card { padding: 4rem 2rem; transform: none; margin: 4rem 1.5rem 8rem; }
     .form-grid-luxury { grid-template-columns: 1fr; gap: 2rem; }
     .input-group-luxury.full-width { grid-column: span 1; }
-    .star-gold { font-size: 2.5rem; }
+    .star-gold { font-size: 3rem; }
+}
+
+@media (max-width: 480px) {
+    .luxury-feedback-card { padding: 3rem 1.2rem; margin: 3rem 1rem 6rem; }
+    .feedback-header { margin-bottom: 3rem; }
+    .feedback-header h2 { font-size: 2.2rem; }
+    .feedback-subtitle { font-size: 1.1rem; }
+    .star-gold { font-size: 2.2rem; }
+    .star-rating-luxury { gap: 0.5rem; }
+    .rating-center { margin-bottom: 3rem; }
+    .form-grid-luxury { gap: 1.5rem; margin-bottom: 3rem; }
+    .btn-luxury-submit { padding: 1.5rem; font-size: 1rem; border-radius: 1.2rem; }
 }
 /* Partners Section */
 .partners {
