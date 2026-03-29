@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДИ Център - Премиум Апартамент в Плевен</title>
+    <meta name="description" content="Добре дошли в апартамент ДИ Център, Плевен. Вашето място за отдих с всички модерни удобства.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Sora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="ДИ Център - Премиум Апартамент в Плевен">
+    <meta property="og:description" content="Вашият елегантен дом в сърцето на Плевен. Лукс, уют и модерни удобства.">
+    <meta property="og:image" content="apartment.jpg">
+    <meta property="og:url" content="https://davidabg91.github.io/AIRBNB/">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="style.css?v=1.3">
+    <script defer src="main.js"></script>
+</head>
+<body class="light-theme">
+    <!-- Ambient background elements -->
+    <div class="ambient-glow g1"></div>
+    <div class="ambient-glow g2"></div>
+
+    <header class="main-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <h1 class="logo">ДИ<span>ЦЕНТЪР</span></h1>
+                <div class="header-badges">
+                    <div class="badge" data-i18n="premium-badge">PREMIUM STAY</div>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" onclick="toggleLang('bg')">BG</button>
+                        <button class="lang-btn" onclick="toggleLang('en')">EN</button>
+                    </div>
+                </div>
+            </div>
+            <p class="header-subtitle" data-i18n="header-subtitle">Вашият елегантен дом в сърцето на Плевен</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Welcome Section -->
+        <section class="hero container" id="home">
+            <div class="hero-card">
+                <div class="hero-text">
+                    <h1 data-i18n="hero-h1">Добре дошли</h1>
+                    <p class="hero-guide-text" data-i18n="hero-guide-desc">Вашият дигитален наръчник за максимално лесен и приятен престой.</p>
+                    <p data-i18n="hero-p">Вашият перфектен престой в сърцето на Плевен. Лукс, уют и модерни удобства, събрани в едно незабравимо преживяване.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="apartment.jpg" alt="ДИ Център Интериор">
+                </div>
+            </div>
+        </section>
+
+        <!-- Connectivity & Comfort -->
+        <section class="essentials container">
+            <div class="grid-layout">
+                <div class="card premium wifi-card">
+                    <div class="card-icon blue"><i data-lucide="wifi"></i></div>
+                    <h3 data-i18n="wifi-h3">Бърз Интернет</h3>
+                    <div class="info-group">
+                        <div class="info-row">
+                            <span class="label" data-i18n="wifi-label-name">Име на мрежата:</span>
+                            <span id="wifi-name" class="wifi-detail">TP-Link_E0DB</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="label" data-i18n="wifi-label-pass">Парола:</span>
+                            <span id="wifi-pass" class="wifi-detail">49976717</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-action w-full" onclick="copyWifi('wifi-pass')" data-i18n="wifi-btn">
+                        <i data-lucide="copy"></i> Копирай паролата
+                    </button>
+                </div>
+
+                <div class="card premium highlight">
+                    <div class="card-icon blue"><i data-lucide="tv"></i></div>
+                    <h3 data-i18n="remote-h3">Smart TV & Media</h3>
+                    <p data-i18n="remote-p">Вижте как да използвате дистанционното в дневната стая за оптимално преживяване.</p>
+                    <button class="btn btn-wa w-full" onclick="toggleModal('remote-modal')" data-i18n="remote-btn">
+                        <i data-lucide="help-circle"></i> Инструкции за дистанционното
+                    </button>
+                </div>
+
+                <div class="card premium">
+                    <div class="card-icon red"><i data-lucide="monitor"></i></div>
+                    <h3 data-i18n="smart-h3">Smart Удобства</h3>
+                    <div class="pill-container" style="margin-bottom: 1.5rem;">
+                        <span class="pill google">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; margin-right: 6px; fill: #4285F4;">
+                                <path d="M12 0a1.44 1.44 0 0 0-.947.399L.547 10.762a1.26 1.26 0 0 0-.342.808v11.138c0 .768.53 1.292 1.311 1.292h20.968c.78 0 1.311-.522 1.311-1.292V11.57a1.25 1.25 0 0 0-.34-.804L15.68 3.097h-.001L12.947.4A1.454 1.454 0 0 0 12 0Zm0 6.727 6.552 6.456v5.65H5.446v-5.65z"/>
+                            </svg>
+                            Google Home
+                        </span>
+                        <span class="pill netflix">
+                            <svg viewBox="0 0 24 24" fill="#E50914" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; margin-right: 6px;">
+                                <path d="m5.398 0 8.348 23.602c2.346.059 4.856.398 4.856.398L10.113 0H5.398zm8.489 0v9.172l4.715 13.33V0h-4.715zM5.398 1.5V24c1.873-.225 2.81-.312 4.715-.398V14.83L5.398 1.5z"/>
+                            </svg>
+                            Netflix
+                        </span>
+                        <span class="pill youtube-music">
+                            <svg viewBox="0 0 24 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; margin-right: 6px;">
+                                <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/>
+                            </svg>
+                            YouTube Music
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Discovery Grid -->
+        <section class="discovery container" id="guide">
+            <div class="section-header">
+                <h2 data-i18n="discovery-h2">Открийте Плевен</h2>
+                <p data-i18n="discovery-p">Ето местата, които не бива да пропускате</p>
+            </div>
+            <div class="discovery-grid">
+                <div class="bento-card panorama">
+                    <img src="_mg_5579.jpg" alt="Панорама Плевенска епопея">
+                    <div class="bento-body">
+                        <span class="dist"><i data-lucide="map-pin"></i> 1.2 км</span>
+                        <h3 data-i18n="discovery-pan-h3">Панорама "Плевенска епопея"</h3>
+                        <p data-i18n="discovery-pan-p">Нашият градски символ. Едно от малкото места в света, които разказват историята по този начин.</p>
+                    </div>
+                </div>
+                <div class="bento-card cascade">
+                    <img src="1366x768.jpg" alt="Водна каскада">
+                    <div class="bento-body">
+                        <span class="dist"><i data-lucide="map-pin"></i> 0.3 км</span>
+                        <h3 data-i18n="discovery-cas-h3">Водната каскада</h3>
+                        <p data-i18n="discovery-cas-p">Най-голямата водна каскада на Балканите, разположена в центъра на града.</p>
+                    </div>
+                </div>
+                <div class="bento-card park">
+                    <img src="20150617104801_37909.jpeg" alt="Парк Кайлъка">
+                    <div class="bento-body">
+                        <span class="dist"><i data-lucide="map-pin"></i> 2.5 км</span>
+                        <h3 data-i18n="discovery-park-h3">Парк Кайлъка</h3>
+                        <p data-i18n="discovery-park-p">Огромен природен парк с язовири, пещери и зоопарк.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gastronomy Recommendations -->
+        <section class="dining container">
+            <div class="section-header">
+                <h2 data-i18n="dining-h2">Къде да хапнете?</h2>
+                <p data-i18n="dining-p">Нашите лични фаворити за вкусно преживяване</p>
+            </div>
+            <div class="dining-grid">
+                <div class="dining-card">
+                    <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&w=400&h=200&q=80" alt="Механа ХИМЕРА" class="dining-img">
+                    <div class="dining-content">
+                        <h4 data-i18n="dining-himera-h4">Механа "ХИМЕРА"</h4>
+                        <p data-i18n="dining-himera-p">Точно до апартамента – препоръчваме го за традиционна българска храна и уютна атмосфера.</p>
+                        <a href="https://maps.app.goo.gl/P2yD6X1gBqiXpMjv7" target="_blank" class="text-link" data-i18n="dining-link">Виж локация <i data-lucide="arrow-right"></i></a>
+                        <div class="dist" style="margin-top: 1rem; margin-bottom: 0;">
+                            <i data-lucide="map-pin"></i> <span data-i18n="dist-himera">20м</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cantonata in the middle -->
+                <div class="dining-card featured">
+                    <img src="Cantonata.png" alt="Ресторант Кантоната" class="dining-img" style="object-fit: contain; background: rgba(255,255,255,0.5); padding: 1.5rem;">
+                    <div class="dining-content">
+                        <div class="featured-badge" data-i18n="recipe-recommendation">НАШАТА ПРЕПОРЪКА</div>
+                        <h4 data-i18n="dining-cantonata-h4">Ресторант "Кантоната"</h4>
+                        <p data-i18n="dining-cantonata-p">Традиционна и модерна кухня, поднесена в уютна и стилна обстановка.</p>
+                        <a href="https://maps.app.goo.gl/ntDEAQ5dr8bS8R27A" target="_blank" class="text-link" data-i18n="dining-link">Виж локация <i data-lucide="arrow-right"></i></a>
+                        <div class="dist" style="margin-top: 1rem; margin-bottom: 0;">
+                            <i data-lucide="map-pin"></i> <span data-i18n="dist-cantonata">400м</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Restaurant Life -->
+                <div class="dining-card">
+                    <img src="20180911150628_62106.jpeg" alt="Ресторант Life" class="dining-img">
+                    <div class="dining-content">
+                        <h4 data-i18n="dining-life-h4">Ресторант "Life"</h4>
+                        <p data-i18n="dining-life-p">Изискана атмосфера и превъзходна кухня – идеалното място за вашия обяд или вечеря.</p>
+                        <a href="https://maps.app.goo.gl/S9KcRKbLsPjvLsA78" target="_blank" class="text-link" data-i18n="dining-link">Виж локация <i data-lucide="arrow-right"></i></a>
+                        <div class="dist" style="margin-top: 1rem; margin-bottom: 0;">
+                            <i data-lucide="map-pin"></i> <span data-i18n="dist-life">2км.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-services">
+                <div class="section-header small">
+                    <h3 data-i18n="delivery-h3">Предпочитате да останете у дома?</h3>
+                    <p data-i18n="delivery-p">Поръчайте храна директно до апартамента чрез тези платформи:</p>
+                </div>
+                <div class="delivery-grid">
+                    <a href="https://wolt.com/bg/bgr/pleven" target="_blank" class="delivery-wrapper">
+                        <img src="images.png" alt="Wolt">
+                    </a>
+                    <a href="https://www.takeaway.com/bg/obshtina-pleven" target="_blank" class="delivery-wrapper">
+                        <img src="dss_takeaway_bg.png" alt="Takeaway">
+                    </a>
+                    <a href="https://glovoapp.com/bg/bg/pleven" target="_blank" class="delivery-wrapper">
+                        <img src="3e244d99852061ce7f4ceead73ff6fe0.jpg" alt="Glovo">
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Breakfast Experience Section -->
+        <section class="experience container">
+            <div class="experience-card">
+                <div class="exp-image">
+                    <img src="bulgarian_mekitsi_breakfast_luxury_1774793699730.png" alt="Bulgarian Breakfast Experience">
+                    <div class="price-tag" data-i18n="breakfast-price">11.99 €</div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-badge">AUTHENTIC EXPERIENCES</div>
+                    <h2 data-i18n="breakfast-h2">Домашна традиционна закуска</h2>
+                    <p data-i18n="breakfast-p">Насладете се на истинския вкус на утрото с нашите пухкави домашно приготвени мекици, поднесени с фермерско сирене, сладко и пчелен мед.</p>
+                    <div class="exp-meta">
+                        <span class="meta-item"><i data-lucide="users"></i> <span data-i18n="breakfast-info">Поръчка на предния ден / До 4 човека</span></span>
+                    </div>
+                    <div class="order-action">
+                        <a href="https://revolut.me/deyvidp7g?currency=EUR&amount=1199&note=%D0%97%D0%B0%D0%BA%D1%83%D1%81%D0%BA%D0%B0%20-%20%D0%BF%D0%BE%D1%80%D1%8A%D1%87%D0%BA%D0%B0" target="_blank" class="revolut-pay-btn exp-order-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px; margin-right: 10px;">
+                                <path d="M14.34 3H5.16v18h3.36v-6.66h3.42l3.72 6.66h3.84L15.3 11.82c1.68-.66 2.76-1.92 2.76-4.26C18.06 4.68 16.56 3 14.34 3zm-0.54 6h-5.22v-3h5.22c.96 0 1.44.42 1.44 1.5s-.48 1.5-1.44 1.5z"/>
+                            </svg>
+                            <span data-i18n="breakfast-btn">ПОРЪЧАЙ ЗАКУСКА</span>
+                        </a>
+                        <p class="order-note" data-i18n="breakfast-note">Моля, добавете основание: Поръчка-Закуска</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Availability Calendar -->
+        <section class="availability container" id="availability">
+            <div class="section-header">
+                <h2 data-i18n="calendar-h2">Проверете заетостта</h2>
+                <p data-i18n="calendar-p">Планирайте престоя си в ДИ Център</p>
+            </div>
+            <div id="calendar-wrapper" class="calendar-card">
+                <div class="calendar-header-info">
+                    <div class="legend">
+                        <span class="legend-item"><span class="dot reserved"></span> <span data-i18n="calendar-res">Заето</span></span>
+                        <span class="legend-item"><span class="dot today"></span> <span data-i18n="calendar-today">Днес</span></span>
+                    </div>
+                </div>
+                <div id="calendar-grid" class="calendar-grid-container">
+                    <div class="calendar-loader" data-i18n="calendar-loader">Зареждане на календар...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- House Rules Section -->
+        <section class="house-rules container" id="rules">
+            <div class="section-header">
+                <h2 data-i18n="rules-h2">Вътрешни правила на дома</h2>
+                <p data-i18n="rules-p">Ще отседнете в нечий дом, затова се отнасяйте към него с грижа и уважение.</p>
+            </div>
+            <div class="rules-grid">
+                <!-- Check-in / Out -->
+                <div class="rules-card">
+                    <div class="rules-category">
+                        <i data-lucide="clock"></i>
+                        <h3 data-i18n="rules-cat1">Настаняване и освобождаване</h3>
+                    </div>
+                    <ul class="rules-list">
+                        <li><i data-lucide="check-circle-2"></i> <span data-i18n="rules-rule1">Гъвкаво настаняване</span></li>
+                        <li><i data-lucide="log-out"></i> <span data-i18n="rules-rule2">Освобождаване преди 12:00</span></li>
+                        <li><i data-lucide="key"></i> <span data-i18n="rules-rule3">Самостоятелно настаняване (минисейф)</span></li>
+                    </ul>
+                </div>
+
+                <!-- During Stay -->
+                <div class="rules-card">
+                    <div class="rules-category">
+                        <i data-lucide="home"></i>
+                        <h3 data-i18n="rules-cat2">По време на престоя ви</h3>
+                    </div>
+                    <ul class="rules-list">
+                        <li><i data-lucide="users"></i> <span data-i18n="rules-rule4">Максимум 6 гости</span></li>
+                        <li><i data-lucide="dog"></i> <span data-i18n="rules-rule5">Разрешават се домашни любимци</span></li>
+                        <li><i data-lucide="ban" class="danger"></i> <span data-i18n="rules-rule6">Без партита или празненства</span></li>
+                        <li><i data-lucide="camera-off"></i> <span data-i18n="rules-rule7">Без комерсиално заснемане</span></li>
+                        <li><i data-lucide="no-smoking" class="danger"></i> <span data-i18n="rules-rule8">Пушенето забранено</span></li>
+                    </ul>
+                </div>
+
+                <!-- Departure / Extra -->
+                <div class="rules-card">
+                    <div class="rules-category">
+                        <i data-lucide="sparkles"></i>
+                        <h3 data-i18n="rules-cat3">Преди да напуснете</h3>
+                    </div>
+                    <ul class="rules-list">
+                        <li><i data-lucide="trash-2"></i> <span data-i18n="rules-rule9">Изхвърлете боклука</span></li>
+                        <li><i data-lucide="rotate-ccw"></i> <span data-i18n="rules-rule10">Върнете ключовете</span></li>
+                    </ul>
+                    <div class="extra-request">
+                        <strong data-i18n="rules-extra-label">Допълнителни изисквания:</strong>
+                        <p data-i18n="rules-extra-p">Уведомете ни при напускане, за да може да подготвим апартамента за следващите гости.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="host-section container" id="contact">
+            <div class="host-card-new">
+                <div class="host-avatar-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop" alt="Deivid" class="host-avatar">
+                    <div class="badge-superhost" data-i18n="contact-badge">Супердомакин</div>
+                </div>
+                
+                <div class="host-info">
+                    <h2>Deyvid Dimitrov</h2>
+                    <p class="host-meta" data-i18n="contact-meta">Настанява гости от 3 години</p>
+                    <p class="host-help" data-i18n="contact-help">Можете да се свържете с мен по всяко време за всичко, тук съм да помогна.</p>
+                </div>
+
+                <div class="host-highlights">
+                    <div class="host-highlight">
+                        <i data-lucide="award" style="color: var(--accent-gold);"></i>
+                        <div class="highlight-info">
+                            <h4 data-i18n="contact-h4">Топ 5% от домовете</h4>
+                            <p data-i18n="contact-p">Този дом е на водеща позиция в класацията въз основа на отзиви и надеждност.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-group">
+                    <a href="tel:+359876141826" class="btn btn-call" data-i18n="contact-btn-call"><i data-lucide="phone"></i> Обаждане</a>
+                    <a href="viber://chat?number=%2B359876141826" class="btn btn-viber"><i data-lucide="message-square"></i> Viber</a>
+                    <a href="https://wa.me/359876141826" class="btn btn-wa"><i data-lucide="message-circle"></i> WhatsApp</a>
+                    <a href="https://t.me/+359876141826" class="btn btn-telegram"><i data-lucide="send"></i> Telegram</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews & Feedback -->
+        <section class="feedback container" id="reviews">
+            <div class="luxury-feedback-card">
+                <div class="feedback-header">
+                    <div class="header-icon-wrapper">
+                        <i data-lucide="award" class="gold-icon"></i>
+                    </div>
+                    <h2 data-i18n="reviews-h2">Вашето мнение е важно</h2>
+                    <p class="feedback-subtitle" data-i18n="reviews-p-sub">Помогнете ни да бъдем още по-добри за следващите ни гости.</p>
+                </div>
+                
+                <div class="feedback-box">
+                    <div id="review-form-new" class="luxury-form">
+                        <div class="rating-center">
+                            <div class="star-rating-luxury">
+                                <span class="star-gold" data-value="5">★</span>
+                                <span class="star-gold" data-value="4">★</span>
+                                <span class="star-gold" data-value="3">★</span>
+                                <span class="star-gold" data-value="2">★</span>
+                                <span class="star-gold" data-value="1">★</span>
+                            </div>
+                            <div class="rating-label" data-i18n="rating-label">Оценете своя престой</div>
+                        </div>
+
+                        <div class="form-grid-luxury">
+                            <div class="input-group-luxury">
+                                <label data-i18n="reviews-label-name">Вашето име</label>
+                                <input type="text" id="guest-name" placeholder="Вашето име..." class="luxury-input" data-i18n="reviews-placeholder-name">
+                            </div>
+                            <div class="input-group-luxury">
+                                <label data-i18n="reviews-label-text">Коментар</label>
+                                <textarea id="guest-text" class="luxury-input" placeholder="Споделете вашите впечатления..." data-i18n="reviews-placeholder-text"></textarea>
+                            </div>
+                            <div class="input-group-luxury full-width">
+                                <label data-i18n="reviews-label-imp">Препоръки (по желание)</label>
+                                <textarea id="guest-improvement" class="luxury-input small" placeholder="Какво бихме могли да подобрим?" data-i18n="reviews-placeholder-imp"></textarea>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-luxury-submit" onclick="submitGuestReview()">
+                            <span data-i18n="reviews-btn">ИЗПРАТИ ОТЗИВ</span>
+                            <i data-lucide="sparkles" style="width: 18px; margin-left: 8px;"></i>
+                        </button>
+                    </div>
+
+                    <div id="thank-you-new" class="hidden-new luxury-thanks">
+                        <div class="success-signature">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <h3 data-i18n="reviews-thanks-h3">Благодарим ви!</h3>
+                        <p data-i18n="reviews-thanks-p">Вашият отзив бе получен успешно. Очакваме ви отново!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Homes Section -->
+        <section class="other-property container" id="homes">
+            <div class="section-header">
+                <h2 data-i18n="other-property-h2">НАШИТЕ ДОМОВЕ:</h2>
+                <p data-i18n="other-property-p">Изберете следващото си преживяване при нас</p>
+            </div>
+            <div class="properties-grid">
+                <!-- Current Property -->
+                <div class="property-wrapper current">
+                    <div class="property-badge-header">
+                        <div class="here-badge-inline">
+                            <i data-lucide="map-pin"></i>
+                            <span data-i18n="here-badge">Вие сте тук</span>
+                        </div>
+                    </div>
+                    <div class="airbnb-embed-frame" data-id="1274011504896548508" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto;">
+                        <a href="https://bg.airbnb.com/rooms/1274011504896548508?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget">Прегледайте в Airbnb</a>
+                        <a href="https://bg.airbnb.com/rooms/1274011504896548508?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">Дом · Pleven · ★4,96 · 2 спални · 3 легла · 1 баня</a>
+                        <script async="" src="https://bg.airbnb.com/embeddable/airbnb_jssdk"></script>
+                    </div>
+                </div>
+
+                <!-- Other Property -->
+                <div class="property-wrapper current">
+                    <div class="property-badge-header">
+                        <div class="here-badge-inline">
+                            <i data-lucide="map-pin"></i>
+                            <span data-i18n="other-place-badge">Другото ни място:</span>
+                        </div>
+                    </div>
+                    <div class="airbnb-embed-frame" data-id="1210747322461877492" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto;">
+                        <a href="https://bg.airbnb.com/rooms/1210747322461877492?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget">Прегледайте в Airbnb</a>
+                        <a href="https://bg.airbnb.com/rooms/1210747322461877492?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">Дом · Pleven · ★4,93 · 1 спалня · 1 легло · 1 баня</a>
+                        <script async="" src="https://bg.airbnb.com/embeddable/airbnb_jssdk"></script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners container">
+            <h4 class="partners-title" data-i18n="partners-h4">Нашите партньори</h4>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 44px; height: 44px; fill: #FF5A5F;">
+                        <path d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/>
+                    </svg>
+                    <span>Airbnb</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Tip Modal -->
+    <div id="tip-modal" class="modal-blur hidden-new" onclick="closeModalOnOutsideClick(event, 'tip-modal')">
+        <div class="modal-card tip-modal-card">
+            <div class="luxury-glow-modal"></div>
+            <button class="modal-close" onclick="toggleModal('tip-modal')">&times;</button>
+            <div class="modal-head">
+                <i data-lucide="party-popper" class="head-icon animate-pulse-slow"></i>
+                <h3 data-i18n="tip-modal-h3">Благодарим за вниманието!</h3>
+                <p data-i18n="tip-modal-p">Ако сте останали очаровани от престоя си, можете да оставите бакшиш тук:</p>
+            </div>
+            <div class="modal-links">
+                <a href="https://revolut.me/deyvidp7g" target="_blank" class="revolut-pay-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 22px; height: 22px; margin-right: 10px; vertical-align: middle;">
+                        <path d="M14.34 3H5.16v18h3.36v-6.66h3.42l3.72 6.66h3.84L15.3 11.82c1.68-.66 2.76-1.92 2.76-4.26C18.06 4.68 16.56 3 14.34 3zm-0.54 6h-5.22v-3h5.22c.96 0 1.44.42 1.44 1.5s-.48 1.5-1.44 1.5z"/>
+                    </svg>
+                    <span>Revolut</span>
+                </a>
+                <div class="modal-link-item bank" onclick="copyIBAN('BG42PATC40022139519921')">
+                    <div class="bank-info">
+                        <span class="link-label-extra" data-i18n="tip-modal-bank">Банкова Сметка</span>
+                        <div class="holder-name">DEYVID DIMITROV</div>
+                        <div class="iban-number" id="iban-text">BG42 PATC 4002 2139 5199 21</div>
+                    </div>
+                    <div class="copy-badge">
+                        <i data-lucide="copy"></i>
+                        <span id="copy-msg" data-i18n="copy-btn">Копирай</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container footer-inner">
+            <a href="https://davidabg91.github.io/DavidaX/" target="_blank" class="footer-credit">
+                <span data-i18n="footer-text">Created by DavidaX</span>
+            </a>
+            <div class="f-socials">
+                <a href="#"><i data-lucide="instagram"></i></a>
+                <a href="#"><i data-lucide="facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init icons
+        lucide.createIcons();
+    </script>
+    <div class="modal-blur hidden-new" id="remote-modal" onclick="closeModalOnOutsideClick(event, 'remote-modal')">
+        <div class="modal-card wide">
+            <button class="modal-close" onclick="toggleModal('remote-modal')">&times;</button>
+            <div class="modal-head">
+                <i data-lucide="tv"></i>
+                <h3 data-i18n="remote-h3">Smart TV & Media</h3>
+                <p data-i18n="remote-p">Вижте как да използвате дистанционното в дневната стая за оптимално преживяване.</p>
+            </div>
+            <div class="remote-guide-container">
+                <p style="margin-bottom: 2rem; color: var(--accent-gold); font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <i data-lucide="zoom-in" style="width: 16px;"></i> Кликни за приближаване
+                </p>
+                <div class="remote-img-wrapper" onclick="this.classList.toggle('zoom-active')">
+                    <img src="remote.jpg" alt="TV Remote Guide" class="remote-img">
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h4 data-i18n="remote-video-h4">Видео Урок</h4>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/5KHDFH_B9R8?start=46" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SVG Gradients -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff0844;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ffb199;stop-opacity:1" />
+            </linearGradient>
+            <radialGradient id="heartHighlight" cx="30%" cy="30%" r="50%" fx="30%" fy="30%">
+                <stop offset="0%" style="stop-color:white;stop-opacity:0.6" />
+                <stop offset="100%" style="stop-color:white;stop-opacity:0" />
+            </radialGradient>
+        </defs>
+    </svg>
+
+    <!-- Floating Heart TIP Button -->
+    <button class="tip-btn designer-heart" onclick="toggleModal('tip-modal')">
+        <div class="heart-container">
+            <svg viewBox="0 0 24 24" class="heart-svg">
+                <!-- Base Heart with Glow -->
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" style="fill: url(#heartGradient);"/>
+                <!-- 3D Highlight layer -->
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" style="fill: url(#heartHighlight); opacity: 0.8;"/>
+            </svg>
+            <span class="tip-text">TIP</span>
+        </div>
+    </button>
+</body>
+</html>
