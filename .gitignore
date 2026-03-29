@@ -1,0 +1,17 @@
+node_modules/
+*.js
+!main.js
+*.png
+!Cantonata.png
+!dss_takeaway_bg.png
+!images.png
+!bulgarian_mekitsi_breakfast_luxury_11.99.png
+!bulgarian_mekitsi_breakfast_luxury_1774793699730.png
+!png-clipart-revolut-black-full-logo-tech-companies.png
+*.jpg
+!panorama_epopeya.jpg
+*.jpeg
+!20180911150628_62106.jpeg
+!20150617104801_37909.jpeg
+package-lock.json
+package.json

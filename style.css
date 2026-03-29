@@ -1158,20 +1158,38 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
         grid-template-columns: 1fr !important; 
         gap: 1.5rem;
     }
+
+    .discovery-grid { 
+        grid-auto-rows: auto !important;
+    }
+    
+    .panorama, .cascade, .park {
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+    
+    .bento-card { height: 450px; }
     .card { padding: 2rem 1.5rem; }
     .card-icon { width: 45px; height: 45px; font-size: 1.2rem; }
     .card h3 { font-size: 1.4rem; }
     
-    .hero-card, .calendar-card, .host-card-new, .feedback-box { 
+    .hero-card, .calendar-card, .host-card-new, .feedback-box, .luxury-feedback-card { 
         padding: 2.5rem 1.5rem; 
         border-radius: var(--radius-lg); 
     }
-    .footer-inner { flex-direction: column; gap: 2rem; border-radius: 2rem; padding: 3rem 1.5rem; }
-    .logo { font-size: 2.5rem; }
-    .hero-card h1 { font-size: 4rem; transform: rotate(-2deg); margin-bottom: 1.5rem; }
-    .hero-card p { font-size: 1.1rem; }
-    .section-header h2 { font-size: 2.2rem; }
-    .bento-card { height: 450px; }
+    
+    .section-header { 
+        margin-top: 4rem; 
+        margin-bottom: 3rem; 
+    }
+    
+    .discovery, .dining, .experience, .availability, .house-rules, .host-section, .feedback, .other-property {
+        margin-bottom: 4rem;
+    }
+    
+    .hero { min-height: auto; padding: 4rem 0; }
+    
+    .bento-card { height: 400px; }
 }
 
 @media (max-width: 480px) {
@@ -1627,15 +1645,29 @@ textarea:focus, .form-input-modern:focus { outline: none; border-color: var(--ac
     50% { transform: translateY(-3px); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .properties-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
     }
     .property-wrapper {
-        padding: 1.5rem;
+        padding: 1.5rem !important;
+        max-width: 100%;
+        margin: 0 auto;
     }
     .airbnb-embed-frame {
         width: 100% !important;
-        height: auto !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        height: 480px !important; /* Airbnb widgets often need a fixed height to show properly on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .property-wrapper {
+        padding: 1rem !important;
+    }
+    .airbnb-embed-frame {
+        height: 520px !important; /* Slightly taller for narrow screens */
     }
 }
