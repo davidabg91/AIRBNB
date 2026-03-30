@@ -210,6 +210,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initAvailabilityCalendar();
 });
 
+// --- Telegram Configuration ---
+const TELEGRAM_CONFIG = {
+    token: '8648419017:AAHbJHe_gutTVVLCz5pS83jfxXVFoGm3_lA',
+    chatId: '5943467121'
+};
+
+let selectedRating = 0;
+
 // --- Language Infrastructure ---
 function initLanguage() {
     const savedLang = localStorage.getItem('di_center_lang');
@@ -300,14 +308,13 @@ window.copyIBAN = copyIBAN;
 // --- Star Rating ---
 function initStarRating() {
     const stars = document.querySelectorAll('.star-gold');
-    let rating = 0;
 
     stars.forEach(star => {
         star.addEventListener('mouseover', () => highlightStars(star.dataset.value));
-        star.addEventListener('mouseout', () => highlightStars(rating));
+        star.addEventListener('mouseout', () => highlightStars(selectedRating));
         star.addEventListener('click', () => {
-            rating = star.dataset.value;
-            highlightStars(rating);
+            selectedRating = parseInt(star.dataset.value);
+            highlightStars(selectedRating);
         });
     });
 
@@ -317,11 +324,13 @@ function initStarRating() {
 }
 
 // --- Submit Review ---
-function submitGuestReview() {
+async function submitGuestReview() {
     const name = document.getElementById('guest-name').value;
     const text = document.getElementById('guest-text').value;
+    const improvements = document.getElementById('guest-improvement').value;
     const form = document.getElementById('review-form-new');
     const thanks = document.getElementById('thank-you-new');
+    const submitBtn = form.querySelector('.btn-luxury-submit');
 
     if (name.trim().length < 2) {
         alert(currentLang === 'bg' ? 'Моля, въведете вашето име.' : 'Please enter your name.');
@@ -333,8 +342,53 @@ function submitGuestReview() {
         return;
     }
 
-    form.classList.add('hidden-new');
-    thanks.classList.remove('hidden-new');
+    // Set loading state
+    const originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = currentLang === 'bg' ? 'ИЗПРАЩАНЕ...' : 'SENDING...';
+
+    // Prepare message for Telegram
+    const stars = "⭐".repeat(selectedRating) || "Няма оценка";
+    const message = `
+🌟 **НОВ ОТЗИВ ЗА ДИ ЦЕНТЪР** 🌟
+
+👤 **Гост:** ${name}
+⭐ **Оценка:** ${stars} (${selectedRating}/5)
+
+💬 **Коментар:**
+${text}
+
+💡 **Препоръки за подобрение:**
+${improvements || 'Няма посочени'}
+
+---
+🌍 **Език на потребителя:** ${currentLang.toUpperCase()}
+    `;
+
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_CONFIG.token}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CONFIG.chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        });
+
+        if (response.ok) {
+            form.classList.add('hidden-new');
+            thanks.classList.remove('hidden-new');
+        } else {
+            throw new Error('Telegram error');
+        }
+    } catch (error) {
+        console.error('Submission error:', error);
+        alert(currentLang === 'bg' ? 'Възникна грешка при изпращането. Моля, свържете се директно с домакина.' : 'Error sending review. Please contact the host directly.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+    }
 }
 
 // --- Modal Logic ---
